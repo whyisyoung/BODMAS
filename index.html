@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://whyisyoung.github.io/BODMAS/ -->
+<html lang="en-US">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GX8DXB34VL"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-GX8DXB34VL');
+        </script>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/bodmas.css">
+
+        <!-- Begin Jekyll SEO tag v2.7.1 -->
+        <title>BODMAS Malware Dataset</title>
+        <meta name="generator" content="Jekyll v3.9.0">
+        <meta property="og:title" content="BODMAS Malware Dataset">
+        <meta property="og:locale" content="en_US">
+        <link rel="canonical" href="https://whyisyoung.github.io/BODMAS/">
+        <meta property="og:url" content="https://whyisyoung.github.io/BODMAS/">
+        <meta property="og:site_name" content="BODMAS">
+        <meta name="twitter:card" content="summary">
+        <meta property="twitter:title" content="BODMAS Malware Dataset">
+        <script type="application/ld+json">
+        {"@type":"WebSite","headline":"BODMAS Malware Dataset","url":"https://whyisyoung.github.io/BODMAS/","name":"BODMAS","@context":"https://schema.org"}</script>
+        <!-- End Jekyll SEO tag -->
+    </head>
+
+    <body data-new-gr-c-s-check-loaded="14.1000.0" data-gr-ext-installed="">
+        <header>
+        <!-- <div class="container">
+            <a id="a-title" href="https://whyisyoung.github.io/BODMAS/"> <h1>BODMAS</h1> </a>
+            <h2>The BODMAS Malware Dataset is created and maintained by Blue Hexagon and UIUC.</h2>
+            <section id="downloads">
+            <a href="https://github.com/whyisyoung/BODMAS" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+            </section>
+        </div> -->
+        </header>
+
+        <div class="container">
+        <section id="main_content">
+            <h1 id="bodmas-malware-dataset">BODMAS Malware Dataset</h1>
+
+            <p>BODMAS is short for <strong>B</strong>lue Hexagon <strong>O</strong>pen <strong>D</strong>ataset for <strong>M</strong>alware <strong>A</strong>nalysi<strong>S</strong>. We collaborate with <a href="https://bluehexagon.ai/">Blue Hexagon</a> to release a dataset containing timestamped malware samples and well-curated family information for research purposes. The BODMAS dataset contains 57,293 malware samples and 77,142 benign samples collected from August 2019 to September 2020, with carefully curated family information (581 families).</p>
+
+            <p>We extract the feature vectors using the <a href="https://lief.quarkslab.com/">LIEF</a> project (version 0.9.0), the same as the <a href="https://github.com/elastic/ember">Ember</a> dataset (details can be found <a href="https://github.com/elastic/ember/blob/master/ember/features.py">here</a>). Each sample is represented as a 2381 feature vector, along with its label (<code class="language-plaintext highlighter-rouge">benign</code> or <code class="language-plaintext highlighter-rouge">malicious</code>) and malware family if it’s malicious. We also release the original binary for malware samples only.</p>
+
+        <p>Further details can be found in our paper “BODMAS: An Open Dataset for Learning based Temporal Analysis of PE Malware”, Deep Learing and Security Workshop 2021 (co-located with IEEE Security and Privacy 2021).</p>
+
+<p>If you end up building on this dataset as part of a project or publication, please include a reference to our paper:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@inproceedings{bodmas,
+    title = {BODMAS: An Open Dataset for Learning based Temporal Analysis of PE Malware},
+    author = {Yang, Limin and Ciptadi, Arridhana and Ahmadzadeh, Ali and Wang, Gang},
+    booktitle = {2021 IEEE Security and Privacy Workshops},
+    year = {2021}
+}
+</code></pre></div></div>
+
+<h2 id="download">Download</h2>
+<ol>
+  <li>The feature vectors and metadata are open to everyone. Download the data here: <a href="https://drive.google.com/drive/folders/1Uf-LebLWyi9eCv97iBal7kL1NgiGEsv_?usp=sharing">Google Drive</a>
+    <ul>
+      <li>feature vectors (~250 MB): <code class="language-plaintext highlighter-rouge">bodmas.npz</code></li>
+      <li>metadata (~12 MB): <code class="language-plaintext highlighter-rouge">bodmas_metadata.csv</code></li>
+    </ul>
+  </li>
+  <li>We cannot release the original file for the benign software due to copyright considerations. But we will host the original binaries of malware samples. To avoid misuse, please read and agree to the following conditions before sending us emails.
+    <ul>
+      <li>Do not share the data with any others (except your co-authors for the project). We are happy to share with other researchers based upon their requests.</li>
+      <li>Explain in a few sentences of your plan to do with these binaries. It should not be a precise plan.</li>
+      <li>If you are in academia, contact us using your institution email and provide us a webpage registered at the university domain that contains your name and affiliation.</li>
+      <li>If you are in research (industrial) labs, send us an email from your company’s email account and introduce yourself and company. In the email, please attach a justification letter (in PDF format) in official letterhead. The letter needs to state clearly the reasons why this dataset is being requested.</li>
+    </ul>
+
+    <p>Please note that an email not following the conditions might be ignored. And we will keep the public list of organizations accessing these samples here.</p>
+  </li>
+</ol>
+
+<h2 id="get-started">Get Started</h2>
+<ol>
+  <li>
+    <p>To load the feature vectors, you need to load <code class="language-plaintext highlighter-rouge">bodmas.npz</code> (a numpy compressed format) with the following code. Note that the feature values are unnormalized, which is okay for classifiers like gradient-boosted decision tree, but you may need to normalize them first when applying an MLP classifier.</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+ <span class="n">filename</span> <span class="o">=</span> <span class="s">'bodmas.npz'</span>
+ <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+ <span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'X'</span><span class="p">]</span>  <span class="c1"># all the feature vectors
+</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'y'</span><span class="p">]</span>  <span class="c1"># labels, 0 as benign, 1 as malicious
+</span>
+ <span class="k">print</span><span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+ <span class="c1"># &gt;&gt;&gt; (134435, 2381), (134435)
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>For <code class="language-plaintext highlighter-rouge">bodmas_metadata.csv</code>, it has three columns, indicating SHA-256, when the sample first appeared, and malware family. <code class="language-plaintext highlighter-rouge">If the malware family is empty, then it’s a benign sample.</code></p>
+  </li>
+</ol>
+
+    <h2 id="contact">Contributors</h2>
+        <p><a href="https://liminyang.web.illinois.edu">Limin Yang</a>, Ph.D. student at UIUC (Contact me via liminy2@illinois.edu).</p>
+        <p>Arridhana Ciptadi, Blue Hexagon Inc.</p>
+        <p>Ali Ahmadzadeh, Blue Hexagon Inc.</p>
+        <p><a href="https://gangw.cs.illinois.edu">Gang Wang</a>, Assistant Professor at UIUC</p>
+    </section>
+    </div>
+
+<br> <br> <br>
+</body></html>
