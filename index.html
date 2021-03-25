@@ -60,6 +60,10 @@
         <section id="main_content">
             <h1 id="bodmas-malware-dataset">BODMAS Malware Dataset</h1>
 
+            <section id="downloads">
+              <a href="https://github.com/whyisyoung/BODMAS" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+            </section>
+
             <p>BODMAS is short for <strong>B</strong>lue Hexagon <strong>O</strong>pen <strong>D</strong>ataset for <strong>M</strong>alware <strong>A</strong>nalysi<strong>S</strong>. We collaborate with <a href="https://bluehexagon.ai/">Blue Hexagon</a> to release a dataset containing timestamped malware samples and well-curated family information for research purposes. The BODMAS dataset contains 57,293 malware samples and 77,142 benign samples collected from August 2019 to September 2020, with carefully curated family information (581 families).</p>
 
             <p>We extract the feature vectors using the <a href="https://lief.quarkslab.com/">LIEF</a> project (version 0.9.0), the same as the <a href="https://github.com/elastic/ember">Ember</a> dataset (details can be found <a href="https://github.com/elastic/ember/blob/master/ember/features.py">here</a>). Each sample is represented as a 2381 feature vector, along with its label (<code class="language-plaintext highlighter-rouge">benign</code> or <code class="language-plaintext highlighter-rouge">malicious</code>) and malware family if it’s malicious. We also release the original binary for malware samples only.</p>
@@ -82,6 +86,7 @@
     <ul>
       <li>feature vectors (~250 MB): <code class="language-plaintext highlighter-rouge">bodmas.npz</code></li>
       <li>metadata (~12 MB): <code class="language-plaintext highlighter-rouge">bodmas_metadata.csv</code></li>
+      <li>They are sorted by the timestamp in the ascending order (i.e., each feature vector corresponds to one row in the metadata file).</li>
     </ul>
   </li>
   <li>We cannot release the original file for the benign software due to copyright considerations. But we will host the original binaries of malware samples. To avoid misuse, please read and agree to the following conditions before sending us emails.
@@ -109,7 +114,7 @@
 </span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'y'</span><span class="p">]</span>  <span class="c1"># labels, 0 as benign, 1 as malicious
 </span>
  <span class="k">print</span><span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
- <span class="c1"># &gt;&gt;&gt; (134435, 2381), (134435)
+ <span class="c1"># &gt;&gt;&gt; (134435, 2381), (134435,)
 </span></code></pre></div>    </div>
   </li>
   <li>
