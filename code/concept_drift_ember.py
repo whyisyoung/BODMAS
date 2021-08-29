@@ -40,10 +40,11 @@ import bodmas.multiple_data as multiple_data
 import bodmas.multiple_evaluate as evaluate
 import bodmas.utils as utils
 import bodmas.classifier as classifier
-import transcend.detect as transcend_detect
 from bodmas.config import config
 from bodmas.logger import init_log
 
+# WARNING: you may comment the following 3 lines and corresponding code if you didn't ask access to the Transcend code
+import transcend.detect as transcend_detect
 sys.path.append('transcend')
 import scores
 

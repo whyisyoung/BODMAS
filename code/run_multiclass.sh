@@ -1,4 +1,4 @@
-/home/liminyang/.pyenv/versions/3.6.8/envs/bluehex/bin/python -u multiple_dataset_main.py   \
+/home/liminyang/.pyenv/versions/3.6.8/envs/bluehex/bin/python -u bluehex_main.py   \
     --task multiclass                             \
     --training-set bluehex                        \
     --classifier $1                               \
