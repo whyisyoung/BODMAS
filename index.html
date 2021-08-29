@@ -64,6 +64,9 @@
             <a href="https://github.com/whyisyoung/BODMAS" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
           </section>
 
+          <p id="notice">Update (08/29/2021) - Source code is available at: <a href="https://github.com/whyisyoung/BODMAS">GitHub</a>
+          </p>
+
           <p>BODMAS is short for <strong>B</strong>lue Hexagon <strong>O</strong>pen <strong>D</strong>ataset for <strong>M</strong>alware <strong>A</strong>nalysi<strong>S</strong>. We collaborate with <a href="https://bluehexagon.ai/">Blue Hexagon</a> to release a dataset containing timestamped malware samples and well-curated family information for research purposes. The BODMAS dataset contains 57,293 malware samples and 77,142 benign samples collected from August 2019 to September 2020, with carefully curated family information (581 families).</p>
 
           <p>We extract the feature vectors using the <a href="https://lief.quarkslab.com/">LIEF</a> project (version 0.9.0), the same as the <a href="https://github.com/elastic/ember">Ember</a> dataset (details can be found <a href="https://github.com/elastic/ember/blob/master/ember/features.py">here</a>). Each sample is represented as a 2381 feature vector, along with its label (<code class="language-plaintext highlighter-rouge">benign</code> or <code class="language-plaintext highlighter-rouge">malicious</code>) and malware family if it’s malicious. We also release the original binary for malware samples only.</p>
@@ -155,7 +158,16 @@
       <p>Ali Ahmadzadeh, Blue Hexagon Inc.</p>
       <p><a href="https://gangw.cs.illinois.edu">Gang Wang</a>, Assistant Professor at UIUC</p>
   </section>
+
+  <br>
+  <p class="footer">Last updated:
+    <script>
+      t = new Date(document.lastModified).toLocaleDateString()
+      document.write(t);
+    </script>
+    </p>
   </div>
+
 
 <br> <br> <br>
 </body></html>
