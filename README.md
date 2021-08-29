@@ -105,3 +105,9 @@ If you want to use pretrained SOREL-20M models, you need to specify your locatio
     ```bash
     main_bluehex_multiclass.sh -> fabric_multiclass.py -> run_multiclass.sh -> bluehex_main.py
     ```
+
+## Contact
+If you have any questions, please contact Limin (liminy2@illinois.edu).
+
+## Licensing
+BSD 2-Clause "Simplified" License.
