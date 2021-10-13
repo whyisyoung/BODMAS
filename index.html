@@ -109,16 +109,16 @@
 </ol>
 
 <h2 id="get-started">Get Started</h2>
-<ol>
+<ul>
 <li>
   <p>To load the feature vectors, you need to load <code class="language-plaintext highlighter-rouge">bodmas.npz</code> (a numpy compressed format) with the following code. Note that the feature values are unnormalized, which is okay for classifiers like gradient-boosted decision tree, but you may need to normalize them first when applying an MLP classifier.</p>
 
-  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 
 <span class="n">filename</span> <span class="o">=</span> <span class="s">'bodmas.npz'</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'X'</span><span class="p">]</span>  <span class="c1"># all the feature vectors
-</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'y'</span><span class="p">]</span>  <span class="c1"># labels, 0 as benign, 1 as malicious
+</span><span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'y'</span><span class="p">]</span>  <span class="c1"># labels, 0 as benign, 1 as malicious
 </span>
 <span class="k">print</span><span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="c1"># &gt;&gt;&gt; (134435, 2381), (134435,)
@@ -127,16 +127,35 @@
 <li>
   <p>For <code class="language-plaintext highlighter-rouge">bodmas_metadata.csv</code>, it has three columns, indicating SHA-256, when the sample first appeared, and malware family. <code class="language-plaintext highlighter-rouge">If the malware family is empty, then it’s a benign sample.</code></p>
 </li>
-</ol>
+<li>
+  <p>Top malware families and their number of samples (&gt;= 1,000) are as follows:</p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. sfone: 4729
+2. wacatac: 4694
+3. upatre: 3901
+4. wabot: 3673
+5. small: 3339
+6. ganelp: 2232
+7. dinwod: 2057
+8. mira: 1960
+9. berbew: 1749
+10. sillyp2p: 1616
+11. ceeinject: 1169
+12. gepys: 1124
+13. benjamin: 1071
+14. musecador: 1054
+</code></pre></div>
+</div>
+</li>
+</ul>
 
 <h2 id="organizations">Organizations Reguested Our Dataset</h2>
 <ol>
-<li>Simon Fraser University</li>
+<li>Simon Fraser University, Canada</li>
 <li>Oracle Labs</li>
 <li>Columbia University</li>
-<li>Telkom University</li>
-<li>University of Alberta</li>
-<li>Orange Inc.</li>
+<li>Telkom University, Indonesia</li>
+<li>University of Alberta, Canada</li>
+<li>Orange Inc., France</li>
 <li>Beijing Institute of Technology</li>
 <li>College Of Engineering Pune, India</li>
 <li>University of Salerno, Italy</li>
